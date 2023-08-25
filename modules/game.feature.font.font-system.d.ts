@@ -15,6 +15,7 @@ declare global {
     }
 
     interface FontSystem extends ig.GameAddon {
+      colors: Record<string, ig.Image>;
       font: ig.MultiFont;
       smallFont: ig.MultiFont;
       tinyFont: ig.MultiFont;

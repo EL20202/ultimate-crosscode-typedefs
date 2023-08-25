@@ -25,7 +25,7 @@ declare global {
     }
 
     namespace Image {
-      type Data = Exclude<CanvasImageSource, SVGImageElement>;
+      type Data = Exclude<CanvasImageSource, SVGImageElement | VideoFrame>;
       type Callback = () => void;
     }
 
@@ -38,6 +38,7 @@ declare global {
       loadInternal(this: this): void;
       addCallback(this: this, callback: Image.Callback): void;
       onload(this: this): void;
+      onresized(this: this, data?: unknown): void;
       onerror(this: this): void;
       resize(this: this, scale: number): void;
       createPattern(

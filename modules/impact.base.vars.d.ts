@@ -17,6 +17,7 @@ declare global {
     }
 
     interface Vars extends ig.Class {
+      currentLevelName: string;
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       storage: any;
 

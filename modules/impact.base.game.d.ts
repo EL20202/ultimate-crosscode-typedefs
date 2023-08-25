@@ -84,7 +84,7 @@ declare global {
       isTeleporting(this: this): boolean;
       teleport(
         mapName: string,
-        marker?: Optional<ig.TeleportPosition>,
+        marker?: Optional<ig.TeleportPosition> | Optional<ig.TeleportPosition.Settings>,
         hint?: ig.Game.TeleportLoadHint,
         clearCache?: Optional<boolean>,
         reloadCache?: Optional<boolean>,
@@ -173,12 +173,12 @@ declare global {
           };
     }
     interface TeleportPosition extends ig.Class {
-      pos: Optional<Vec3>;
-      face: Optional<Vec2>;
-      marker: Optional<string>;
-      level: number;
-      baseZPos: number;
-      size: Optional<Vec2>;
+      pos?: Optional<Vec3>;
+      face?: Optional<Vec2>;
+      marker?: Optional<string>;
+      level?: number;
+      baseZPos?: number;
+      size?: Optional<Vec2>;
 
       setFromData(
         this: this,

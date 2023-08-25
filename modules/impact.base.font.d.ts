@@ -4,10 +4,18 @@ export {};
 
 declare global {
   namespace ig {
+    let LANG_LATIN_END: number;
     interface TextCommand {
       index: number;
       command: { brake: number } | { color: number } | { speed: number };
     }
+    type TextCommandCallbackWithArgument = (argument: string, textIndex: number, commands: TextCommand[]) => string | void;
+    type TextCommandCallbackWithoutArgument = (textIndex: number, commands: TextCommand[]) => string | void;
+    interface TextCommands {
+      register(key: string, takesArgument: true, callback: TextCommandCallbackWithArgument): void;
+      register(key: string, takesArgument: false, callback: TextCommandCallbackWithoutArgument): void;
+    }
+    let TextCommands: TextCommands;
 
     enum Font$ALIGN {
       LEFT,
@@ -48,6 +56,7 @@ declare global {
       pushIconSet(this: this, iconSet: ig.Font): void;
       setIconSet(this: this, iconSet: ig.Font, index: number): void;
       setMapping(this: this, mapping: MultiFont.Mapping): void;
+      pushColorSet(this: this, index: sc.FONT_COLORS, image: ig.Image, colorString: string): void
       getTextDimensions(this: this, text: string, linePadding: number): ig.TextBlock.Size;
       wrapText(
         this: this,
