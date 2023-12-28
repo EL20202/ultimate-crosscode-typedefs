@@ -25,4 +25,18 @@ declare global {
     interface CrosshairDotConstructor extends ImpactClass<CrosshairDot> {}
     var CrosshairDot: CrosshairDotConstructor;
   }
+
+  namespace sc {
+    interface PlayerCrossHairController extends ig.Class {
+      gamepadMode: boolean;
+      isAiming(this: this): boolean;
+      getAimingDistance(this: this, a: Vec2, b: Vec2): number;
+      onActiveChange(this: this, a: ig.ENTITY.Crosshair): void;
+      updatePos(this: this, a: Vec2): void;
+    }
+    interface PlayerCrossHairControllerConstructor extends ImpactClass<PlayerCrossHairController> {
+
+    }
+    var PlayerCrossHairController: PlayerCrossHairControllerConstructor;
+  }
 }

@@ -50,6 +50,7 @@ declare global {
         align?: keyof typeof ig.ENTITY_ALIGN | ig.ENTITY_ALIGN;
         target2?: ig.Entity;
         target2Align?: ig.ENTITY_ALIGN;
+        target2Point?: Vec3;
         spriteFilter?: number[];
         callback?: EventCallback;
         duration?: number;

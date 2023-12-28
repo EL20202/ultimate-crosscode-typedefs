@@ -60,6 +60,8 @@ declare global {
       interface Gui {
         crosshair: ig.ENTITY.Crosshair
       }
+
+      interface Settings extends ig.Entity.Settings {}
     }
     interface Player extends sc.PlayerBaseEntity {
       proxies: Record<string, sc.ProxySpawnerBase>;
@@ -75,6 +77,8 @@ declare global {
       jumpPoint: Vec2;
       jumpForwardDir: Vec2;
       gui: Player.Gui;
+      cameraHandle: ig.Camera.TargetHandle;
+      cameraTargets: ig.Entity[];
       dashTimer: number;
       dashBlock: number;
       charging: ig.ENTITY.Player.Charging;
@@ -82,6 +86,8 @@ declare global {
       
       updateSkinAura(this: this): void;
       updateModelStats(this: this, a: boolean): void;
+      getMaxDashes(this: this): number;
+      _updateCameraHandle(this: this, speed: keyof typeof ig.Camera$SPEED_OPTIONS): void;
       showChargeEffect(this: this, level: number): void;
       getMaxChargeLevel(this: this, actionKey: Player.ActionKey): 0 | 1 | 2 | 3;
       getChargeAction(this: this, chargeType: ig.ENTITY.Player.Charging.Type, level: number): string;
@@ -94,7 +100,9 @@ declare global {
       onPerfectDash(this: this): void;
       onHeal(this: this, healInfo: sc.HealInfo.Settings | sc.HealInfo, amount: number): void
     }
-    interface PlayerConstructor extends ImpactClass<Player> {}
+    interface PlayerConstructor extends ImpactClass<Player> {
+      new (x: number, y: number, z: number, settings: Player.Settings): ig.ENTITY.Player;
+    }
     var Player: PlayerConstructor;
   }
 }

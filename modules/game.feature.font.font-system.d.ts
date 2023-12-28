@@ -15,12 +15,14 @@ declare global {
     }
 
     interface FontSystem extends ig.GameAddon {
+      gamepadIcons: boolean;
       colors: Record<string, ig.Image>;
       font: ig.MultiFont;
       smallFont: ig.MultiFont;
       tinyFont: ig.MultiFont;
 
       changeKeyCodeIcon(this: this, action: LiteralUnion<ig.Input.KnownAction>, key: ig.KEY): void;
+      onVarsChanged(this: this): void;
     }
     interface FontSystemConstructor extends ImpactClass<FontSystem> {
       new (): FontSystem;

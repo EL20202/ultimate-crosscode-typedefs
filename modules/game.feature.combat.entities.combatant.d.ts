@@ -58,11 +58,33 @@ declare global {
   }
 
   namespace ig.ENTITY {
+    namespace Combatant {
+      interface SpikeDmg {
+        baseFactor: number;
+        tmpFactor: number;
+      }
+      interface PVP {
+        active: boolean;
+        enemies: ig.ENTITY.Combatant[];
+        round: number;
+      }
+      interface Respawn {
+        dmgFactor: number;
+        pos: Vec3;
+        oldPos: Vec3;
+        timer: number;
+        duration?: number;
+        damage?: number;
+      }
+    }
     interface Combatant extends sc.BasicCombatant {
       party: sc.COMBATANT_PARTY
       params: sc.CombatParams;
       invincibleTimer: number;
       shieldsConnections: sc.CombatantShieldConnection[];
+      spikeDmg: Combatant.SpikeDmg;
+      pvp: Combatant.PVP;
+      respawn: Combatant.Respawn;
       effects: Record<string, ig.EffectSheet>;
 
       setTarget(this: this, combatant: sc.BasicCombatant, fixed?: Optional<boolean>): void;

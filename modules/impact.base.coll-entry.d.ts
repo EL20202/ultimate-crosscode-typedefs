@@ -37,6 +37,7 @@ declare global {
     var CollEntry: CollEntryConstructor;
 
     interface CollTools {
+      getScreenDistance(coll1: CollEntry, coll2: CollEntry): number;
       getDistVec2(coll1: CollEntry, coll2: CollEntry, dest: Vec2): Vec2;
     }
     var CollTools: CollTools;

@@ -63,6 +63,7 @@ declare global {
 
   namespace Vec3 {
     function create(): Vec3;
+    function create(v: Vec3): Vec3;
     function createC(x?: number, y?: number, z?: number): Vec3;
     function assign(v1: Vec3, v2: Vec3): Vec3;
     function assignC(v: Vec3, x?: number, y?: number, z?: number): Vec3;
