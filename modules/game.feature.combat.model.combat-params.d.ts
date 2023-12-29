@@ -105,6 +105,7 @@ declare global {
         shieldResult?: sc.SHIELD_RESULT,
         hitIgnore?: boolean
       ): CombatParams.DamageResult;
+      applyDamage(this: this, damageResult: CombatParams.DamageResult, attackInfo: sc.AttackInfo, combatant: ig.ENTITY.Combatant): void;
       getHealAmount(this: this, healInfo: sc.HealInfoType): number;
       setCritical(this: this): void;
       increaseHp(this: this, amount: number): void;
@@ -122,7 +123,9 @@ declare global {
       removeAllBuffs(this: this): void;
       update(this: this, inCombat: boolean): void;
     }
-    interface CombatParamsConstructor extends ImpactClass<CombatParams> {}
+    interface CombatParamsConstructor extends ImpactClass<CombatParams> {
+      new (baseParams: sc.CombatParams.BaseParams): sc.CombatParams;
+    }
     var CombatParams: CombatParamsConstructor;
 
     interface AttackInfo extends ig.Class {
@@ -135,6 +138,7 @@ declare global {
       element: sc.ELEMENT;
       critFactor: number;
       spFactor: number;
+      noHack: boolean;
 
       hasHint(this: this, hint: string): boolean
     }

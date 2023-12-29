@@ -27,9 +27,11 @@ declare global {
       _getOffensiveFactor(this: this, attackInfo: sc.AttackInfo): number;
       getEffectiveness(this: this, params: sc.CombatParams): number;
     }
-    interface CombatStatusBaseConstructor extends ImpactClass<CombatStatusBase> {}
+    interface CombatStatusBaseConstructor extends ImpactClass<CombatStatusBase> {
+      new (): CombatStatusBase
+    }
     var CombatStatusBase: CombatStatusBaseConstructor;
-    var COMBAT_STATUS: sc.CombatStatusBase[];
+    var COMBAT_STATUS: sc.CombatStatusBaseConstructor[];
 
     interface BurnStatus extends sc.CombatStatusBase {
       burnTimer: number;
