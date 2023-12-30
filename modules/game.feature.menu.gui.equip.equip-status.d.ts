@@ -21,6 +21,21 @@ declare global {
     }
     interface EquipStatusContainer extends ig.GuiElementBase {
       baseParams: sc.EquipStatusContainer.BaseParams;
+
+      _createStatusDisplay(this: this,
+        x: number,
+        y: number,
+        name: string,
+        colorIndex: number,
+        iconID: number,
+        usePercent: boolean,
+        maxValue: number,
+        currentValue: number,
+        noPercent: Optional<boolean>,
+        menuPanel: sc.MenuPanel,
+        modifier?: keyof sc.MODIFIERS,
+        order?: number,
+      ): sc.SimpleStatusDisplay;
     }
     interface EquipStatusContainerConstructor extends ImpactClass<EquipStatusContainer> {
       new (): EquipStatusContainer;

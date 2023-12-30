@@ -26,6 +26,20 @@ declare global {
       compareHelpText: sc.TextGui;
 
       _createContent(this: this): void;
+      _createStatusDisplay(this: this,
+        x: number,
+        y: number,
+        name: string,
+        lineID: number,
+        iconID: number,
+        usePercent: boolean,
+        maxValue: number,
+        currentValue: number,
+        i: unknown,
+        noPercentMode: boolean,
+        modifier?: keyof sc.MODIFIERS,
+        index?: number
+      ): SimpleStatusDisplay;
     }
     interface TradeToggleStatsConstructor extends ImpactClass<TradeToggleStats> {}
     var TradeToggleStats: TradeToggleStatsConstructor;

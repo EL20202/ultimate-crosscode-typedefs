@@ -151,6 +151,7 @@ declare global {
       setTranslate(this: this, x: number, y: number): this;
       setScale(this: this, x: number, y: number): this;
       setRotate(this: this, r: number): this;
+      setPivot(this: this, x: number, y: number): this;
       isComplex(this: this): boolean;
       transform(this: this, x: number, y: number): void;
       kill(this: this): void;
