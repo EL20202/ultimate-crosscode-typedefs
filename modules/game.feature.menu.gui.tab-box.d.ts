@@ -39,6 +39,7 @@ declare global {
         type: number,
         sort: number,
       ): void;
+      onListEntryPressed(this: this, button: ig.FocusGui): void;
     }
     interface ListTabbedPaneConstructor extends ImpactClass<ListTabbedPane> {}
     var ListTabbedPane: ListTabbedPaneConstructor;

@@ -119,15 +119,19 @@ declare global {
         name: ig.LangLabel.Data;
         condition: string;
         type: sc.ARENA_BASE_TYPE;
+        mods: (keyof sc.ARENA_CHALLENGES)[];
       }
 
       interface Runtime {
         score: number;
         prevScore: number;
         timer: number;
+        cup: string;
+        customRound: boolean;
         chain: number;
         rushChain: number;
         rushChainMax: number;
+        chainHits: number;
         chainTimer: number;
         roundKills: number;
         currentWave: number;
@@ -138,7 +142,7 @@ declare global {
       }
     }
 
-    interface Arena extends ig.GameAddon, ig.Vars.Accessor, sc.Model.Observer {
+    interface Arena extends ig.GameAddon, ig.Vars.Accessor, sc.Model.Observer, ig.Storage.Listener {
       active: boolean;
       runtime: sc.Arena.Runtime
       coins: number;
@@ -169,10 +173,13 @@ declare global {
         attackInfo: sc.AttackInfo,
       ): void;
       addScore(this: this, scoreType: keyof sc.ARENA_SCORE_TYPES, points?: number): void;
+      enterArenaMode(this: this, cupName: string, round: number): void;
+      exitArenaMode(this: this): void;
       getTotalArenaCompletion(this: this): number;
       getCupCompletion(this: this, cupName: string): number;
       getTotalDefaultTrophies(this: this, a: number, c: boolean): number;
       getCupTrophy(this: this, cupName: string): sc.ARENA_MEDALS_TROPHIES | -1;
+      getCupLevel(this: this, cupName: string): number;
       isCupUnlocked(this: this, cupName: string): boolean;
       getTotalDefaultCups(this: this, sorted: boolean): { [key: string]: { order: number } };
       isCupCustom(this: this, cupName: string): boolean;
@@ -190,6 +197,7 @@ declare global {
       ): Arena.KnownCupAttributes[K];
       onEnemyBreak(this: this, enemy: ig.ENTITY.Enemy): void;
       hasChallenge(this: this, challenge: keyof sc.ARENA_CHALLENGES): boolean;
+      hasAscendedChallenge(this: this, cupName: string): boolean;
     }
     interface ArenaConstructor extends ImpactClass<Arena> {
       new (): Arena;

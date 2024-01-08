@@ -22,6 +22,17 @@ declare global {
       _skillsRed: boolean;
       _hideAll: boolean;
       _skillHidden: boolean;
+
+      updateValues(
+        this: this,
+        baseValue: number,
+        equipValue: number,
+        skillValue: number,
+        maxValue: number,
+        equipAdd?: number,
+        skillAdd?: number,
+        showRed?: boolean
+      ): void;
     }
     interface StatusParamBarConstructor extends ImpactClass<StatusParamBar> {
       new (

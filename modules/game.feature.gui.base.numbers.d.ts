@@ -41,11 +41,15 @@ declare global {
         transitionTime?: Optional<number>;
         transitionScale?: Optional<number>;
         zeroAsGrey?: Optional<boolean>;
+        showPlus?: Optional<boolean>;
       }
     }
     interface NumberGui extends ig.GuiElementBase {
-      showPlus: boolean;
       maxNumber: number;
+      digits: number;
+      realDigits: number;
+      signed: boolean;
+      showPlus: boolean;
 
       setNumber(this: this, number: number, skipTransition?: Optional<boolean>): void;
       setMaxNumber(this: this, number: number): void;

@@ -88,6 +88,7 @@ declare global {
       scalable: number[];
 
       updateScaledEquipment(this: this, newLevel: number): void;
+      isScalable(this: this, id: sc.ItemID): boolean;
       getItem(id: sc.ItemID): Optional<sc.Inventory.Item>;
       getItemName(this: this, id: sc.ItemID): string;
       getBuffString(this: this, id: sc.ItemID, a?: boolean, statChangeSettings?: string[]): string | undefined;

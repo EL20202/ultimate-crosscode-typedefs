@@ -134,6 +134,8 @@ declare global {
       simpleMode: boolean;
       noPercentMode: boolean;
       width: number;
+
+      setCurrentValue(this: this, value: number, skipTransition?: boolean): void;
     }
     interface SimpleStatusDisplayConstructor extends ImpactClass<SimpleStatusDisplay> {
       new (

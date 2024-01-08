@@ -9,13 +9,16 @@ declare global {
       type SelectionCallback = (button?: ig.FocusGui) => void;
     }
     interface ButtonGroup extends ig.Class {
+      elements: (ig.FocusGui | null)[][];
       pressCallbacks: ig.ButtonGroup.PressCallback[];
       selectionCallbacks: ig.ButtonGroup.SelectionCallback[];
       current: Vec2;
-
+      regain: Vec2;
       largestIndex: Vec2;
 
       addFocusGui(this: this, gui: ig.FocusGui, x?: number, y?: number, asBackButton?: boolean): void;
+      fillEmptySpace(this: this): void;
+      insertFocusGui(this: this, gui: ig.FocusGui, x: number, y: number): void;
       removeFocusGui(this: this, x: number, y: number): void;
       setMouseFocusLostCallback(this: this, callback: () => void): void;
       addPressCallback(this: this, callback: ig.ButtonGroup.PressCallback): void;

@@ -17,7 +17,7 @@ declare global {
     }
 
     namespace ModalButtonInteract {
-      type Callback = (button: sc.ButtonGui & {data: number}, dialog?: sc.ModalButtonInteract) => void
+      type Callback = (button: sc.ButtonGui & {data: unknown}, dialog: sc.ModalButtonInteract) => void
     }
     interface ModalButtonInteract extends ig.GuiElementBase {
       msgBox: sc.CenterBoxGui;
@@ -28,6 +28,7 @@ declare global {
       buttongroup: sc.ButtonGroup;
       back: sc.ButtonGui;
       keepOpen: boolean;
+      callback?: Optional<ModalButtonInteract.Callback>;
 
       show(this: this): void;
       hide(this: this): void;
@@ -38,7 +39,7 @@ declare global {
         text: sc.TextLike,
         icon: Optional<sc.DIALOG_INFO_ICON>,
         options: sc.TextLike[],
-        callback: ModalButtonInteract.Callback,
+        callback?: Optional<ModalButtonInteract.Callback>,
         disableSubmitSound?: Optional<boolean>,
       ): ModalButtonInteract;
     }

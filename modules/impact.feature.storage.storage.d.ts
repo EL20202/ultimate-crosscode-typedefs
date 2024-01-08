@@ -13,6 +13,7 @@ declare global {
         tradersFound: { [id: string]: Data.TraderFound };
         quests: Data.Quests;
         vars: Data.Vars;
+        arena: Data.Arena;
       }
 
       namespace Data {
@@ -46,6 +47,11 @@ declare global {
           levelName: string;
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           storage: any;
+        }
+
+        interface Arena {
+          coins: number;
+          coinsSpend: number;
         }
       }
     }
