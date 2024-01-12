@@ -183,6 +183,7 @@ declare global {
       isCupUnlocked(this: this, cupName: string): boolean;
       getTotalDefaultCups(this: this, sorted: boolean): { [key: string]: { order: number } };
       isCupCustom(this: this, cupName: string): boolean;
+      getTotalArenaCoins(this: this): number;
       isEnemyBlocked(this: this, entity: ig.ENTITY.Enemy): boolean;
       onCombatantHeal(this: this, entity: ig.ENTITY.Combatant, healAmount: number): void;
       startRound(this: this): void;

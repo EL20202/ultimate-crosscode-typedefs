@@ -169,6 +169,7 @@ declare global {
       hotkeysCallbacks: sc.MenuModel.HotkeyCallback;
       currentBackCallback: sc.MenuModel.BackCallback;
       shopID: Optional<string>;
+      shopCoinMode: boolean;
       shopPage: number;
       shopCart: sc.MenuModel.ShopCartEntry[];
       shopSellMode: boolean;
