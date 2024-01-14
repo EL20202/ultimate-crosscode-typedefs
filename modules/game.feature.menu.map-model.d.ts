@@ -111,7 +111,7 @@ declare global {
       validateCurrentPlayerFloor(this: this): void;
       getLandmark(this: this, landmark: string, area: string): sc.MapModel.Area.Landmark;
       getCurrentAreaLandmark(this: this, landmark: string): sc.MapModel.Area.Landmark;
-      getAreaName(this: this, a?: string, b?: boolean, c?: boolean): string;
+      getAreaName(this: this, areaPath?: string, shortName?: boolean, showDLC?: boolean): string;
       getVisitedArea(this: this, area: string): boolean;
       getChestCount(this: this, key: string): number;
     }

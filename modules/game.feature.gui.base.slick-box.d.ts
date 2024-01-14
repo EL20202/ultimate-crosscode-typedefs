@@ -8,5 +8,9 @@ declare global {
         interface SlickBoxRawGui extends ig.BoxGui {}
         interface SlickBoxRawGuiConstructor extends ImpactClass<SlickBoxRawGui> {}
         let SlickBoxRawGui: SlickBoxRawGuiConstructor;
+
+        interface SlickBoxGui extends ig.BoxGui {}
+        interface SlickBoxGuiConstructor extends ImpactClass<SlickBoxGui> {}
+        let SlickBoxGui: SlickBoxGuiConstructor;
     }
 }

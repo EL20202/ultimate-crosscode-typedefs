@@ -43,6 +43,9 @@ declare global {
     interface TradeModel extends ig.GameAddon, sc.Model {
       traders: Record<string, sc.TradeModel.Trader>;
 
+      getTrader(this: this, key: string): sc.TradeModel.Trader;
+      getTraderName(this: this, key: string): string;
+      getTraderAreaName(this: this, key: string, shortName?: boolean): string;
       getFoundTrader(this: this, key: string): sc.TradeModel.FoundTrader;
     }
     interface TradeModelConstructor extends ImpactClass<TradeModel> {

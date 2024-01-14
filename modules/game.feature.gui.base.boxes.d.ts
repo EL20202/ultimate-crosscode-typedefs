@@ -28,6 +28,15 @@ declare global {
     var LineGui: LineGuiConstructor;
 
     interface SideBoxGui extends ig.GuiElementBase {
+      contentEntries: sc.SlickBoxGui[];
+
+      pushContent(this: this, contentGui: ig.GuiElementBase, show: boolean, paddingX?: number, paddingY?: number): void;
+      replaceContent(this: this, index: number, contentGui: ig.GuiElementBase): void;
+      removeContent(this: this, index: number): void;
+      clearContent(this: this): void;
+      popContent(this: this): void;
+      hide(this: this, skip?: boolean, callback?: Optional<(() => void)>): void;
+      show(this: this, skip?: boolean, delay?: number): void;
       remove(this: this): void;
     }
     interface SideBoxGuiConstructor extends ImpactClass<SideBoxGui> {}

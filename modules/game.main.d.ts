@@ -20,8 +20,15 @@ declare global {
       addTeleportMessage(this: this, message: string): void;
       start(this: this, startMode?: sc.START_MODE, transitionTime?: number): void;
     }
-    interface CrossCodeConstructor extends ImpactClass<CrossCode> {}
+    interface CrossCodeConstructor extends ImpactClass<CrossCode> {
+      new (): CrossCode
+    }
     var CrossCode: CrossCodeConstructor;
+
+    interface Gui {
+      rightHudPanel: sc.RightHudGui;
+    }
+    var gui: Gui;
   }
 
   namespace ig {

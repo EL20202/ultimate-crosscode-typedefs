@@ -7,8 +7,19 @@ export {};
 
 declare global {
     namespace sc {
+        interface RightHudGui extends ig.GuiElementBase {
+            addHudBox(this: this, hudBox: sc.SideBoxGui, index?: number): void;
+        }
+        interface RightHudGuiConstructor extends ImpactClass<RightHudGui> {
+            new (): RightHudGui;
+        }
+        var RightHudGui: RightHudGuiConstructor;
+
+
         interface RightHudBoxGui extends sc.SideBoxGui {}
-        interface RightHudBoxGuiConstructor extends ImpactClass<RightHudBoxGui> {}
+        interface RightHudBoxGuiConstructor extends ImpactClass<RightHudBoxGui> {
+            new (title: string): RightHudBoxGui;
+        }
         let RightHudBoxGui: RightHudBoxGuiConstructor;
     }
 }

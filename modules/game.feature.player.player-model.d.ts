@@ -92,6 +92,15 @@ declare global {
       }
       
       type ActionKey = sc.PLAYER_ACTION | keyof typeof sc.PLAYER_ACTION;
+
+      namespace ModelMessages {
+        interface Item {
+          id: number;
+          amount: number;
+          skip?: boolean;
+          cutscene?: boolean;
+        }
+      }
     }
 
     interface PlayerModel extends ig.Class, ig.Vars.Accessor, sc.Model, ig.Storage.Listener {
