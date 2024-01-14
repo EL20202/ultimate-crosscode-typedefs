@@ -50,8 +50,33 @@ declare global {
       enterGame(this: this): void;
       enterPrevSubState(this: this): void;
       enterMenu(this: this, force?: Optional<boolean>): void;
+      isTitle(this: this): boolean;
+      isGame(this: this): boolean;
       isCutscene(this: this): boolean;
+      isRunning(this: this): boolean;
+      isTeleport(this: this): boolean;
+      isLoading(this: this): boolean;
+      isNewGame(this: this): boolean;
+      isReset(this: this): boolean;
+      isLoadGame(this: this): boolean;
+      isMenu(this: this): boolean;
+      isPaused(this: this): boolean;
+      isHUDBlocked(this: this): boolean;      
+      isLevelUp(this: this): boolean;      
+      isQuestSolved(this: this): boolean;      
       isQuickMenu(this: this): boolean;      
+      isQuickMenuElementSwapEnabled(this: this): boolean;      
+      isOnMapMenu(this: this): boolean;      
+      isForceCombat(this: this): boolean;      
+      isCombatMode(this: this): boolean;      
+      isCombatActive(this: this): boolean;      
+      isCombatCooldown(this: this): boolean;      
+      getCombatCooldownFactor(this: this): number;      
+      isSaveAllowed(this: this): boolean;      
+      isPlayerControlBlocked(this: this): boolean;      
+      hasActiveChoice(this: this): boolean;      
+      startSkip(this: this): void;      
+      stopSkip(this: this): void;      
     }
     interface GameModelConstructor extends ImpactClass<GameModel> {
       new (): GameModel;

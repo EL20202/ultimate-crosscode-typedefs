@@ -8,6 +8,8 @@ export {};
 declare global {
   namespace sc {
     var BUTTON_DEFAULT_WIDTH: number;
+    var BUTTON_MENU_WIDTH: number;
+    var BUTTON_TOP_MENU_WIDTH: number;
     var BUTTON_SOUND: { [name: string]: ig.Sound };
 
     interface ButtonHighlightGui extends ig.GuiElementBase {

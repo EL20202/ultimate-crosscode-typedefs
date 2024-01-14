@@ -9,6 +9,7 @@ declare global {
     namespace sc {
         interface RightHudGui extends ig.GuiElementBase {
             addHudBox(this: this, hudBox: sc.SideBoxGui, index?: number): void;
+            addHudBoxBefore(this: this, boxToInsert: sc.SideBoxGui, beforeBox: sc.SideBoxGui): void;
         }
         interface RightHudGuiConstructor extends ImpactClass<RightHudGui> {
             new (): RightHudGui;

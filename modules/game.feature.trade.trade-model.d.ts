@@ -41,6 +41,8 @@ declare global {
     }
 
     interface TradeModel extends ig.GameAddon, sc.Model {
+      buttonInteract: ig.ButtonInteractEntry;
+      tradeIndex: number;
       traders: Record<string, sc.TradeModel.Trader>;
 
       getTrader(this: this, key: string): sc.TradeModel.Trader;
@@ -53,5 +55,28 @@ declare global {
     }
     var TradeModel: TradeModelConstructor;
     var trade: sc.TradeModel;
+
+    interface TradeInfo extends ig.Class {
+      key: string;
+      settings: sc.TradeModel.Trader;
+      iconGui: sc.TradeIconGui;
+      event: ig.Event;
+      entity: ig.ENTITY.NPC;
+
+      startTradeMenu(this: this): void;
+      clearCached(this: this): void;
+    }
+    interface TradeInfoConstructor extends ImpactClass<TradeInfo> {
+    }
+    var TradeInfo: TradeInfoConstructor;
+
+    enum TRADE_MODEL_EVENT {
+      OFFER_CHANGED = 0,
+      INFO_TEXT_CHANGED = 1,
+      BUFF_TEXT_CHANGED = 2,
+      EQUIP_ID_CHANGED = 3,
+      COMPARE_MODE_CHANGED = 4,
+      TRADED = 5,
+    }
   }
 }

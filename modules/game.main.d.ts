@@ -27,6 +27,7 @@ declare global {
 
     interface Gui {
       rightHudPanel: sc.RightHudGui;
+      moneyHud: sc.MoneyHudBox
     }
     var gui: Gui;
   }
