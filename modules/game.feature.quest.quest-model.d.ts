@@ -18,7 +18,11 @@ declare global {
     }
 
     interface QuestModel extends ig.GameAddon, sc.Model, ig.Storage.Listener {
+      focusQuest: number;
+      markedQuests: string[];
+      
       isQuestSolved(this: this, id: string): boolean;
+      cycleFavQuest(this: this, count: number, skip?: boolean): void;
     }
     interface QuestModelConstructor extends ImpactClass<QuestModel> {}
     var QuestModel: QuestModelConstructor;

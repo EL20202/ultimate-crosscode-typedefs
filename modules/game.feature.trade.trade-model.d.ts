@@ -40,7 +40,7 @@ declare global {
       }
     }
 
-    interface TradeModel extends ig.GameAddon, sc.Model {
+    interface TradeModel extends ig.GameAddon, sc.Model, ig.Storage.Listener {
       buttonInteract: ig.ButtonInteractEntry;
       tradeIndex: number;
       traders: Record<string, sc.TradeModel.Trader>;
@@ -49,6 +49,8 @@ declare global {
       getTraderName(this: this, key: string): string;
       getTraderAreaName(this: this, key: string, shortName?: boolean): string;
       getFoundTrader(this: this, key: string): sc.TradeModel.FoundTrader;
+      enterTrade(this: this, options: TradeModel.TradeOption): void;
+      exitTrade(this: this): void;
     }
     interface TradeModelConstructor extends ImpactClass<TradeModel> {
       new (): TradeModel;

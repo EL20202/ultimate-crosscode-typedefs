@@ -28,6 +28,7 @@ declare global {
       bleepDelay: number;
       playSound: boolean;
       stopped: boolean;
+      drawCallback: Optional<ig.TextBlock.DrawCallback>;
 
       onVisibilityChange(this: this, visible: boolean): void;
       setBeepSound(this: this, beepSound: ig.Sound): void;
