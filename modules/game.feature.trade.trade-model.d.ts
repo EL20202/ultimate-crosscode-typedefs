@@ -45,10 +45,12 @@ declare global {
       tradeIndex: number;
       traders: Record<string, sc.TradeModel.Trader>;
 
-      getTrader(this: this, key: string): sc.TradeModel.Trader;
-      getTraderName(this: this, key: string): string;
-      getTraderAreaName(this: this, key: string, shortName?: boolean): string;
-      getFoundTrader(this: this, key: string): sc.TradeModel.FoundTrader;
+      unlockTrader(this: this, trader: string, characterName: string): void
+      unlockParents(this: this, trader: string, characterName: string, originalTrader: string): 0 | 1 | 2;
+      getTrader(this: this, trader: string): sc.TradeModel.Trader;
+      getTraderName(this: this, trader: string): string;
+      getTraderAreaName(this: this, trader: string, shortName?: boolean): string;
+      getFoundTrader(this: this, trader: string): sc.TradeModel.FoundTrader;
       enterTrade(this: this, options: TradeModel.TradeOption): void;
       exitTrade(this: this): void;
     }
