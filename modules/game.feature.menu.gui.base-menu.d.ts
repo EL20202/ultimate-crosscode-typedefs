@@ -17,5 +17,13 @@ declare global {
       new (): BaseMenu;
     }
     var BaseMenu: BaseMenuConstructor;
+
+    interface ListInfoMenu extends sc.BaseMenu {
+      onAddHotkeys(this: this, b?: boolean): void;
+      commitHotKeysToTopBar(this: this, b?: boolean): void;
+    }
+    interface ListInfoMenuConstructor extends ImpactClass<ListInfoMenu> {
+    }
+    var ListInfoMenu: ListInfoMenuConstructor;
   }
 }

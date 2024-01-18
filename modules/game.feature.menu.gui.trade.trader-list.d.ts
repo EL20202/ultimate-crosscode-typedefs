@@ -12,7 +12,19 @@ export {};
 
 declare global {
   namespace sc {
-    interface TradersListBox extends sc.ListTabbedPane {}
+    namespace TradersListBox {
+      type TraderButton = sc.TradeEntryButton | ig.FocusGui;
+    }
+    interface TradersListBox extends sc.ListTabbedPane, sc.Model.Observer {
+      submitSound: ig.Sound;
+
+      addObservers(this: this): void;
+      removeObservers(this: this): void;
+      getCurrentSortText(this: this): string;
+
+      onListEntrySelected(this: this, button: TradersListBox.TraderButton): void;
+      onListEntryPressed(this: this, button: TradersListBox.TraderButton): void;
+    }
     interface TradersListBoxConstructor extends ImpactClass<TradersListBox> {
       new (): TradersListBox;
     }

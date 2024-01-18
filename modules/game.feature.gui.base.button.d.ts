@@ -10,7 +10,21 @@ declare global {
     var BUTTON_DEFAULT_WIDTH: number;
     var BUTTON_MENU_WIDTH: number;
     var BUTTON_TOP_MENU_WIDTH: number;
-    var BUTTON_SOUND: { [name: string]: ig.Sound };
+    interface BUTTON_SOUND {
+      submit: ig.Sound;
+      back: ig.Sound;
+      equip: ig.Sound;
+      denied: ig.Sound;
+      quickAppear: ig.Sound;
+      quickHide: ig.Sound;
+      shop_up: ig.Sound;
+      shop_down: ig.Sound;
+      shop_cash: ig.Sound;
+      quest_accept: ig.Sound;
+      toggle_on: ig.Sound;
+      toggle_off: ig.Sound;
+    }
+    var BUTTON_SOUND: BUTTON_SOUND;
 
     interface ButtonHighlightGui extends ig.GuiElementBase {
       focusWeight: number;

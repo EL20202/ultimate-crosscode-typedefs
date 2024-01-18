@@ -9,15 +9,17 @@ declare global {
   namespace sc {
     interface TradeButtonBox extends ig.GuiElementBase {
       trader: string;
-
+      
       location: sc.TextGui;
     }
     interface TradeButtonBoxConstructor extends ImpactClass<TradeButtonBox> {
       new (trader: string, buttonGroup: sc.ButtonGroup, buttonStartIndex: number): TradeButtonBox;
     }
     var TradeButtonBox: TradeButtonBoxConstructor;
-
+    
     interface TradeEntryButton extends sc.TradeItem {
+      trader: string;
+      offer: number;
     }
     interface TradeEntryButtonConstructor extends ImpactClass<TradeEntryButton> {
       new (text: string, trader: string, offer: number, id: sc.ItemID, desciption: string, amount: number, required: number, level: number): TradeEntryButton;

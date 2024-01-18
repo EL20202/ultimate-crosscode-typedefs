@@ -173,6 +173,13 @@ declare global {
       shopPage: number;
       shopCart: sc.MenuModel.ShopCartEntry[];
       shopSellMode: boolean;
+      tradeToggle: boolean;
+      directMode: boolean;
+      // synopInfo's meaning is defined by the active menu,
+      // and as such it's impractical to give a better type for it
+      // that won't amount to more or less the same thing as "unknown".
+      synopInfo: unknown;
+      statusPage: number;
       statusElement: sc.ELEMENT;
       statusDiff: boolean;
 

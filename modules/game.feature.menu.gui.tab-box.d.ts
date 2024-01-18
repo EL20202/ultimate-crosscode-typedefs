@@ -15,6 +15,8 @@ declare global {
 
       setPanelSize(this: this, width: number, height: number): void;
       addTab(this: this, key: string, index: number, settings: unknown): void;
+      show(this: this): void;
+      hide(this: this): void;
       rearrangeTabs(this: this): void;
 
       onTabButtonCreation(
@@ -40,6 +42,8 @@ declare global {
         sort: number,
       ): void;
       onListEntryPressed(this: this, button: ig.FocusGui): void;
+      onListEntrySelected(this: this, button: ig.FocusGui): void;
+      onListMouseFocusLost(this: this): void;
     }
     interface ListTabbedPaneConstructor extends ImpactClass<ListTabbedPane> {}
     var ListTabbedPane: ListTabbedPaneConstructor;

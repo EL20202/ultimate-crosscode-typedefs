@@ -9,11 +9,15 @@ export {};
 
 declare global {
     namespace sc {
+        namespace HelpScreen {
+            type BackCallback = () => void
+        }
         interface HelpScreen extends ig.GuiElementBase {
+            backCallback?: Optional<HelpScreen.BackCallback>;
             openMenu(this: this): void;
         }
         interface HelpScreenConstructor extends ImpactClass<HelpScreen> {
-            new (base: sc.BaseMenu, manualTitle: string, manualContent: string[], backCallback: () => void, fillEmptySpaces?: boolean): HelpScreen;
+            new (base: sc.BaseMenu, manualTitle: string, manualContent: string[], backCallback?: HelpScreen.BackCallback, fillEmptySpaces?: boolean): HelpScreen;
         }
         var HelpScreen: HelpScreenConstructor;
     }
