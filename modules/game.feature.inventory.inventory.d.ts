@@ -64,6 +64,7 @@ declare global {
         time?: Optional<number>;
         isBuff?: boolean;
         foodSprite?: string;
+        coins?: number;
         // TODO
       }
 
