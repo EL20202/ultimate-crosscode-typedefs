@@ -30,6 +30,7 @@ declare global {
       langUid: number;
       originFile: Optional<string>;
 
+      getSaveData(this: this): LangLabel.Data
       toString(this: this): string;
     }
     interface LangLabelConstructor extends ImpactClass<LangLabel> {
