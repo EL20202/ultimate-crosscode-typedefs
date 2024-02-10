@@ -5,7 +5,7 @@ export {};
 
 declare global {
   namespace sc {
-    interface StatsModel extends ig.GameAddon {
+    interface StatsModel extends ig.GameAddon, sc.Model {
       statsEnabled: boolean;
 
       set(this: this, stat: string, value: number): void;
@@ -25,5 +25,10 @@ declare global {
     }
     var StatsModel: StatsModelConstructor;
     var stats: StatsModel;
+
+    enum STATS_EVENT {
+      STAT_CHANGED = 0,
+      DEFERRED_STAT_CHANGED = 1,
+    }
   }
 }

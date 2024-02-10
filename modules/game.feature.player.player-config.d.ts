@@ -69,6 +69,10 @@ declare global {
     }
     interface PlayerConfig extends ig.JsonLoadable {
       name: string;
+      clazz: string;
+      character: sc.Character;
+      animSheet: ig.AnimationSheet;
+      headIdx: number;
       stats: PlayerConfig.Stats;
       autoequip: PlayerConfig.AutoEquip;
       baseConfig: sc.PlayerSubConfig;
