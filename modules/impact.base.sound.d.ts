@@ -41,6 +41,11 @@ declare global {
     interface SoundWebAudioConstructor extends ImpactClass<SoundWebAudio>, SoundConstructorCommon {}
     var SoundWebAudio: SoundWebAudioConstructor;
 
+    interface SoundHelper {
+      playAtEntity(sound: ig.Sound, entity: ig.Entity, looped?: boolean, settings?: unknown, f?: unknown, g?: unknown): void
+    }
+    let SoundHelper: SoundHelper;
+
     namespace Sound {
       interface FORMAT {
         ext: string;

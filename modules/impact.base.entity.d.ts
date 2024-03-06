@@ -115,8 +115,9 @@ declare global {
       animState: ig.AnimationState;
       currentAnim: string;
 
-      initAnimations(this: this, sheet: ig.AnimationSheet | string | unknown): void;
+      initAnimations(this: this, sheet: ig.AnimationSheet | string | AnimationSheet.SheetData): void;
       setCurrentAnim(this: this, name: string, reset?: boolean, followUp?: Optional<string>, force?: boolean, callbackOnFinish?: boolean): void;
+      animationEnded?(this: this, currentAnim: string): void;
     }
     interface AnimatedEntityConstructor extends ImpactClass<AnimatedEntity> {
       new (x: number, y: number, z: number, settings: ig.AnimatedEntity.Settings): AnimatedEntity;

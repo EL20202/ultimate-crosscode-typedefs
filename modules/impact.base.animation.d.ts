@@ -38,25 +38,49 @@ declare global {
       new (): AnimationState;
     }
     var AnimationState: AnimationStateConstructor;
-
+    
     // A virtual interface, common methods should go here.
     interface BaseAnimationSet extends ig.Class {}
-
+    
     interface SingleDirAnimationSet extends ig.BaseAnimationSet {}
     interface SingleDirAnimationSetConstructor extends ImpactClass<SingleDirAnimationSet> {}
     var SingleDirAnimationSet: SingleDirAnimationSetConstructor;
-
+    
     interface MultiDirAnimationSet extends ig.BaseAnimationSet {}
     interface MultiDirAnimationSetConstructor extends ImpactClass<MultiDirAnimationSet> {}
     var MultiDirAnimationSet: MultiDirAnimationSetConstructor;
-
+    
     function getRoundedFaceDir(faceX: number, faceY: number, numDirs: number, dest: Vec2): Vec2;
-
+    
+    namespace AnimationSheet {
+      namespace SheetData {
+        interface Sheet {
+          src: string;
+          width: number;
+          height: number;
+          offX?: number;
+          offY?: number;
+          xCount?: number;
+        }
+      }
+      interface SheetData {
+        sheet?: SheetData.Sheet;
+        repeat?: boolean;
+        time?: number;
+        name?: string;
+        frames?: number[];
+        framesSpriteOffset?: number[];
+        renderMode?: GlobalCompositeOperation;
+        framesGfxOffset?: number[];
+        aboveZ?: number;
+        SUB?: SheetData[];
+      }
+    }
     interface AnimationSheet extends ig.JsonLoadable {
       anims: Array<ig.MultiDirAnimationSet | ig.SingleDirAnimationSet>;
     }
     interface AnimationSheetConstructor extends ImpactClass<AnimationSheet> {
-      new (pathOrData: string | unknown): ig.AnimationSheet;
+      new (pathOrData: string | AnimationSheet.SheetData): ig.AnimationSheet;
     }
     var AnimationSheet: AnimationSheetConstructor;
     
