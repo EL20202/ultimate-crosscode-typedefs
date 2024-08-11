@@ -27,10 +27,13 @@ declare global {
 
             }
         }
-        interface Camera extends ig.GameAddon {}
+        interface Camera extends ig.GameAddon {
+            removeTarget(this: this, cameraHandle: ig.Camera.TargetHandle, speed: keyof typeof ig.Camera$SPEED_OPTIONS, keyspline: KeySpline): void;
+        }
         interface CameraConstructor extends ImpactClass<Camera> {
-            
             TargetHandle: Camera.TargetHandleConstructor;
         }
+        let Camera: CameraConstructor;
+        let camera: Camera; 
     }
 }
