@@ -26,6 +26,7 @@ declare global {
     type BGM_SWITCH_MODE = keyof typeof BGM_SWITCH_MODE;
 
     interface Bgm extends ig.GameAddon {
+      loadTrack(this: this, name: string): void;
       clear(this: this, mode?: ig.BGM_SWITCH_MODE): void;
     }
     interface BgmConstructor extends ImpactClass<Bgm> {}

@@ -31,14 +31,15 @@ declare global {
       interface LANGUAGE extends ig.GuiElementBase {}
       interface LANGUAGE_CONSTRUCTOR extends ImpactClass<LANGUAGE> {}
     }
-    var OPTION_GUIS: [
-      sc.OPTION_GUIS_DEFS.BUTTON_GROUP_CONSTRUCTOR,
-      sc.OPTION_GUIS_DEFS.ARRAY_SLIDER_CONSTRUCTOR,
-      sc.OPTION_GUIS_DEFS.OBJECT_SLIDER_CONSTRUCTOR,
-      sc.OPTION_GUIS_DEFS.CHECKBOX_CONSTRUCTOR,
-      sc.OPTION_GUIS_DEFS.CONTROLS_CONSTRUCTOR,
-      sc.OPTION_GUIS_DEFS.LANGUAGE_CONSTRUCTOR,
-    ];
+    interface OPTION_GUIS {
+      [sc.OPTION_TYPES.BUTTON_GROUP]: OPTION_GUIS_DEFS.BUTTON_GROUP_CONSTRUCTOR;
+      [sc.OPTION_TYPES.ARRAY_SLIDER]: OPTION_GUIS_DEFS.ARRAY_SLIDER_CONSTRUCTOR;
+      [sc.OPTION_TYPES.OBJECT_SLIDER]: OPTION_GUIS_DEFS.OBJECT_SLIDER_CONSTRUCTOR;
+      [sc.OPTION_TYPES.CHECKBOX]: OPTION_GUIS_DEFS.CHECKBOX_CONSTRUCTOR;
+      [sc.OPTION_TYPES.CONTROLS]: OPTION_GUIS_DEFS.CONTROLS_CONSTRUCTOR;
+      [sc.OPTION_TYPES.LANGUAGE]: OPTION_GUIS_DEFS.LANGUAGE_CONSTRUCTOR;
+    }
+    var OPTION_GUIS: OPTION_GUIS;
 
     interface OptionInfoBox extends ig.GuiElementBase {
       text: sc.TextGui;
@@ -50,7 +51,10 @@ declare global {
     var OptionInfoBox: OptionInfoBoxConstructor;
 
     interface OptionRow extends ig.GuiElementBase {
+      gfx: ig.Image;
+      row: number,
       option: sc.OptionDefinition;
+      optionDes: string;
       nameGui: sc.TextGui;
       typeGui:
         | sc.OPTION_GUIS_DEFS.BUTTON_GROUP

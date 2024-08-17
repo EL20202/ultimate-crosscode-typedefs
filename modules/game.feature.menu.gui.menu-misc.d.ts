@@ -123,6 +123,13 @@ declare global {
     }
     var ItemBoxButton: ItemBoxButtonConstructor;
 
+    interface ItemMenuToggleAnimation extends ig.GuiElementBase {
+    }
+    interface ItemMenuToggleAnimationConstructor extends ImpactClass<ItemMenuToggleAnimation> {
+      new(callback: () => void, isRadio?: boolean): ItemMenuToggleAnimation;
+    }
+    var ItemMenuToggleAnimation: ItemMenuToggleAnimationConstructor;
+
     interface SimpleStatusDisplay extends ig.GuiElementBase {
       gfx: ig.Image;
       lineID: number;

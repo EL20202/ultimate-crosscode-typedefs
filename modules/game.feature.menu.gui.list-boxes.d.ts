@@ -13,6 +13,19 @@ declare global {
     interface ButtonListBox extends sc.ScrollPane {
       buttonGroup: sc.ButtonGroup;
       contentPane: ig.GuiElementBase;
+      paddingTop: number;
+      paddingBetween: number;
+      columnPadding: number;
+      buttonWidth: number;
+      useShoulderScroll: boolean;
+      forceLastScroll: boolean;
+      pageSize: number;
+      buttonInteract: ig.ButtonInteractEntry;
+      offsets: Vec2;
+      columns: number;
+      _prevIndex: number,
+      _skipFirst: boolean,
+      _prevScrollBarHeight: number,
 
       activate(buttonInteract?: Optional<ig.ButtonInteractEntry>): void;
       addButton(
@@ -48,12 +61,16 @@ declare global {
     interface MultiColumnItemListBox extends ig.GuiElementBase {
       list: sc.ButtonListBox;
 
-      addButton(this: this, button: sc.ListBoxButton): void;
+      addButton(this: this, button: sc.ListBoxButton, addFocusGui?: boolean): void;
       clear(this: this, refocus: boolean): void;
+      setSelectState(this: this, state: string, immediate: boolean): void;
+      setQuantityState(this: this, state: string, immediate: boolean): void;
       buttonGroup(this: this): sc.ButtonGroup;
+      activate(this: this): void;
+      deactivate(this: this): void;
     }
     interface MultiColumnItemListBoxConstructor extends ImpactClass<MultiColumnItemListBox> {
-      new (b: number, a: number, columns: sc.LIST_COLUMNS, c: number): sc.MultiColumnItemListBox;
+      new (topPadding: number, buttonWidth: number, columns: sc.LIST_COLUMNS, columnPadding: number): sc.MultiColumnItemListBox;
     }
     var MultiColumnItemListBox: MultiColumnItemListBoxConstructor;
   }

@@ -19,10 +19,14 @@ declare global {
     var BaseMenu: BaseMenuConstructor;
 
     interface ListInfoMenu extends sc.BaseMenu {
+      hotkeyHelp: sc.ButtonGui;
+      hotkeySort?: sc.ButtonGui;
+      list: ig.GuiElementBase;
       onAddHotkeys(this: this, b?: boolean): void;
       commitHotKeysToTopBar(this: this, b?: boolean): void;
     }
     interface ListInfoMenuConstructor extends ImpactClass<ListInfoMenu> {
+      new(list?: ig.GuiElementBase, info?: ig.GuiElementBase | null, helpMenu?: boolean): ListInfoMenu;
     }
     var ListInfoMenu: ListInfoMenuConstructor;
   }
