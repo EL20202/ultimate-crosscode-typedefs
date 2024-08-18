@@ -38,7 +38,10 @@ declare global {
       loadTrack(this: this, name: string): void;
       clear(this: this, mode?: ig.BGM_SWITCH_MODE): void;
     }
-    interface BgmConstructor extends ImpactClass<Bgm> {}
+    interface BgmConstructor extends ImpactClass<Bgm> {
+      
+      preloadStartTrack(name: string): void;
+    }
     var Bgm: BgmConstructor;
     var bgm: Bgm;
   }
