@@ -25,6 +25,15 @@ declare global {
     }
     type BGM_SWITCH_MODE = keyof typeof BGM_SWITCH_MODE;
 
+    interface BGM_TRACK {
+      path: string;
+      loopEnd: number;
+      volume: number;
+      introPath?: string;
+      introEnd?: number;
+    }
+    var BGM_TRACK_LIST: Record<string, BGM_TRACK>;
+
     interface Bgm extends ig.GameAddon {
       loadTrack(this: this, name: string): void;
       clear(this: this, mode?: ig.BGM_SWITCH_MODE): void;
